@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitos</title>
+    <link rel="stylesheet" href="style.css">
+    <!--Libreria para los graficos (Recuerda Mariangel) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <main class="contenedor">
+
+    <div id="contenedorAuth">
+        <!-- PRIMERA VENTANA: YA ESTAS REGISTRADO -->
+        <section class="tarjeta" id="seccionLogin">
+            <h1>Bienvenido a tus Habitos</h1>
+            <p class="subtitulo">Organiza tu dia y cumple tus metas</p>
+            <div class="grupo-input">
+                <input type="text" id="loginName" placeholder="Tu nombre">
+            </div>
+            <div class="grupo-input">
+                <input type="password" id="loginPass" placeholder="Contrasena">
+            </div>
+            <button id="btnLogin" class="btn-principal">Iniciar Sesion</button>
+            <button type="button" id="btnIrRegistro" class="btn-secundario" style="width: 100%; margin-top: 10px; padding: 10px;">Registrarse por primera vez</button>
+            <span id="Mesage"></span>
+        </section>
+
+        <!-- SEGUNDA VENTANA: REGISTRARSE POR PRIMERA VEZ -->
+        <section class="tarjeta" id="seccionRegistro" style="display: none;">
+            <h1>Bienvenido a tus Habitos</h1>
+            <p class="subtitulo">Crea tu usuario</p>
+            
+            <div class="grupo-input">
+                <input type="text" id="name" placeholder="Tu nombre (3-20 letras, sin numeros)">
+            </div>
+            <div class="grupo-input">
+                <input type="password" id="contrasena" placeholder="Contrasena">
+            </div>
+            <div class="grupo-input">
+                <input type="password" id="contrasena1" placeholder="Confirma tu contrasena">
+            </div>
+            
+            <button id="validar" class="btn-principal">Comenzar</button>
+            <button type="button" id="btnIrLogin" class="btn-secundario" style="width: 100%; margin-top: 10px; padding: 10px;">Ya tengo cuenta</button>
+            <span id="MesageRegistro"></span>
+        </section>
+    </div>
+
+
+<!-- PANEL PRINCIPAL DE HABITOS -->
+
+<section class="tarjeta" id="panelHabitos" style="display: none;">
+<div class="header-panel">
+<h2>Mis Habitos</h2>
+<button id="btnCerrarSesion" class="btn-secundario">Cerrar Sesion</button>
+</div>
+
+
+<div class="formulario-habito">
+<div class="grupo-input">
+<input type="text" id="campoNombreHabito" placeholder="Nuevo habito (ej: Leer, Meditar)">
+</div>
+<div class="fila-controles">
+<div class="control-pequeno">
+<label for="campoColorHabito">Color:</label>
+<input type="color" id="campoColorHabito" value="#4A3582">
+</div>
+<div class="control-grande">
+<label for="campoFrecuencia">Frecuencia:</label>
+<select id="campoFrecuencia">
+<option value="Diaria">Diaria</option>
+<option value="Semanal">Semanal</option>
+</select>
+</div>
+<button id="btnAgregarHabito" class="btn-principal">Agregar</button>
+</div>
+</div>
+
+
+  <div class="seccion">
+   <h3>Progreso de Hoy</h3>
+  <div class="caja-progreso">
+    <span id="textoProgreso">Completados: 0 / 0</span>
+  <div class="barra-fondo">
+  <div id="barraProgreso" class="barra-fill"></div>
+ </div>
+ </div>
+ </div>
+
+
+ <div class="seccion">
+   <h3>Tus Tareas</h3>
+ <div id="listaHabitos"></div>
+ </div>
+
+ <div class="seccion">
+     <h3>Calendario</h3>
+     <p class="nota-calendario">Haz clic en cualquier dia para ver o editar tus habitos de esa fecha.</p>
+ <div id="calendarioContainer" class="calendario-grid"></div>
+ </div>
+
+<div class="seccion graficos-grid">
+<div class="grafico-card">
+<canvas id="graficoRachas"></canvas>
+</div>
+<div class="grafico-card">
+<canvas id="graficoCumplimientoHoy"></canvas>
+</div>
+</div>
+
+</section>
+</main>
+
+
+
+    <script type="module" src="./dist/index.js"></script>
+</body>
+</html>
